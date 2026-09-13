@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Research gap là gì và tại sao cần xác định research gap trước khi bắt đầu một nghiên cứu?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ kiến thức nền, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tìm các paper liên quan đến risky driving prediction.",
+    "expected_behavior": "Agent nhận diện nhu cầu tìm tài liệu và tự động phát sinh Tool Call 'search_papers' với topic phù hợp.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "research_plan_creation",
+    "question": "Hãy tạo một research plan cho đề tài risky driving prediction với giới hạn tài nguyên là một GPU RTX 3090 24GB.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call 'create_research_plan' với đúng topic và resource constraints.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Hãy tìm các paper về risky driving prediction, phân tích limitation của chúng và đề xuất một research gap khả thi với GPU RTX 3090 24GB.",
+    "expected_behavior": "Agent thực hiện chuỗi ReAct nhiều bước: gọi 'search_papers', phân tích kết quả, xác định research gap và gọi 'create_research_plan' để đề xuất hướng nghiên cứu khả thi.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy tìm paper về chủ đề XYZ-Nonexistent-Research-Topic-99999 và đề xuất research gap.",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND hoặc không đủ dữ liệu từ Tool, sau đó phản hồi rõ rằng chưa có đủ evidence và không tự bịa paper, citation hoặc research gap.",
+    "complexity": "Medium"
+  }
+]
